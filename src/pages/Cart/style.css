@@ -1,0 +1,30 @@
+.card {
+  background-color: rgba(207, 223, 194, 0.3);
+  padding: 5% 10%;
+  border-radius: 10px;
+  width: auto;
+}
+
+.cart-list {
+  display: grid;
+  grid-template-columns: repeat(3, 22vw);
+  grid-gap: 25px;
+}
+
+.cart-btn {
+  background-color: #cfdfc2;
+  margin-top: 22px;
+}
+
+@media (max-width: 768px) {
+  .cart-list {
+    grid-template-columns: repeat(2, 35vw);
+  }
+}
+
+@media (max-width: 576px) {
+  .cart-list {
+    grid-template-columns: 45vw;
+    grid-gap: 10px;
+  }
+}

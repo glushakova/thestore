@@ -1,0 +1,88 @@
+.navbar {
+  min-height: 10vh;
+  max-height: 25vh;
+  background-color: #fff;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  width: 100vw;
+  color: #333;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.button {
+  color: black;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+  margin-right: 10px;
+}
+
+.navbar-elem-flex {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-elem {
+  margin-right: 15px;
+  height: 25px;
+}
+
+.navbar-elem:last-child {
+  margin-right: 0;
+  font-size: 20px;
+}
+
+.navbar-card {
+  display: flex;
+  font-size: 20px;
+  align-items: center;
+  border: 1px solid rgba(207, 223, 194, 0.5);
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.navbar-card-elem {
+  margin-left: 5px;
+  color: rgb(145, 156, 135);
+}
+
+.img {
+  height: 75px;
+}
+
+@media (max-width: 576px) {
+  .navbar-elem {
+    margin-right: 5px;
+  }
+  .navbar-elem:last-child {
+    margin-right: 0;
+    font-size: 14px;
+    height: auto;
+  }
+  .navbar-elem-flex:first-child {
+    width: 73px;
+  }
+  .navbar-elem-flex {
+    width: 126px;
+  }
+  .navbar-card {
+    font-size: 14px;
+    padding: 2px;
+  }
+  .navbar-card-elem {
+    margin-left: 3px;
+  }
+  .img {
+    height: 45px;
+  }
+  .button {
+    margin-right: 5px;
+  }
+}

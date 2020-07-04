@@ -1,0 +1,11 @@
+.history-orders {
+  display: grid;
+  grid-template-columns: auto;
+  grid-gap: 20px;
+}
+
+@media (max-width: 576px) {
+  .history-orders {
+    grid-template-columns: 80vw;
+  }
+}

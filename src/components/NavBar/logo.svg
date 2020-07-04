@@ -1,0 +1,19 @@
+<svg width="229.99999999999997" height="160" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>background</title>
+  <rect fill="#fff" id="canvas_background" height="162" width="108" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <line stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_1" y2="149.869684" x2="98.731431" y1="50.869684" x1="98.731431" stroke-width="1.5" stroke="#000" fill="none"/>
+  <line stroke="#000" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_4" y2="4.759319" x2="193.699537" y1="51.869685" x1="98.731433" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" fill="none"/>
+  <line stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_5" y2="121.869684" x2="7.731431" y1="149.869684" x1="98.731431" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+  <line stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_6" y2="23.869684" x2="7.731431" y1="51.869684" x1="98.731431" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+  <line stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_7" y2="122.869684" x2="8.731431" y1="23.869684" x1="8.731431" stroke-width="1.5" stroke="#000" fill="none"/>
+  <text transform="matrix(0.8858888615360718,0,0,1.034267741744343,-38.48840777747998,-90.19729733479011) " font-weight="normal" stroke="#000" xml:space="preserve" text-anchor="start" font-family="'Palatino Linotype', 'Book Antiqua', Palatino, serif" font-size="45" id="svg_8" y="172.352381" x="160.691938" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000">The</text>
+  <text stroke="#000" transform="matrix(0.9376167404662306,0,0,1.1924716282247692,-23.619436051504664,-52.386778130318824) " font-weight="normal" xml:space="preserve" text-anchor="start" font-family="'Palatino Linotype', 'Book Antiqua', Palatino, serif" font-size="55" id="svg_9" y="160.252629" x="135.772138" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000">Store</text>
+ </g>
+</svg>

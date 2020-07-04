@@ -1,0 +1,39 @@
+.product-img {
+  height: 32vh;
+}
+
+.product {
+  margin: 0 10%;
+}
+
+.product-price {
+  text-align: right;
+}
+
+.product-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-title {
+  margin: 10px 0 5px;
+}
+
+.product-counter__btn {
+  border: none;
+  border-radius: 0;
+  padding: 8px;
+  margin: 0;
+}
+
+.product-counter__value {
+  padding: 5px;
+  margin: 0 10px;
+}
+
+.product-text {
+  text-align: justify;
+  margin: 0 0 10px;
+  font-size: 15px;
+}
