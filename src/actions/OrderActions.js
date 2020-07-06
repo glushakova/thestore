@@ -5,11 +5,6 @@ axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem(
   'token'
 )}`;
 
-export const onChangeName = (name) => ({
-  type: ACTIONST_TYPE.ON_CHANGE_NAME,
-  payload: name,
-});
-
 export const onChangeAddress = (address) => ({
   type: ACTIONST_TYPE.ON_CHANGE_ADDRESS,
   payload: address,

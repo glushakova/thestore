@@ -6,7 +6,7 @@ import { clickMinus, clickPlus } from '../../actions';
 import img from './fon.jpeg';
 import './style.css';
 
-const Card = ({ id, name, price, country, countAvailable }) => {
+const Card = ({ id, name, price, country, countAvailable, count }) => {
   const value = useSelector((state) => state.card.value);
   const dispatch = useDispatch();
 
@@ -29,21 +29,25 @@ const Card = ({ id, name, price, country, countAvailable }) => {
       <p className="card-info">{`${price}$`}</p>
       <p className="card-info">{country}</p>
       <div className="card-counter">
-        <button
-          className="card-counter__btn"
-          onClick={(event) => minus(event)}
-          disabled={personValue <= 0}
-        >
-          -
-        </button>
-        <div>{personValue}</div>
-        <button
-          className="card-counter__btn"
-          onClick={(event) => plus(event)}
-          disabled={personValue >= countAvailable}
-        >
-          +
-        </button>
+        {!count && (
+          <button
+            className="card-counter__btn"
+            onClick={(event) => minus(event)}
+            disabled={personValue <= 0}
+          >
+            -
+          </button>
+        )}
+        <div>{count ? `Количество: ${count} ` : personValue}</div>
+        {!count && (
+          <button
+            className="card-counter__btn"
+            onClick={(event) => plus(event)}
+            disabled={personValue >= countAvailable}
+          >
+            +
+          </button>
+        )}
       </div>
     </div>
   );
@@ -55,6 +59,7 @@ Card.propTypes = {
   price: PropTypes.number,
   country: PropTypes.string,
   countAvailable: PropTypes.number,
+  count: PropTypes.number,
 };
 
 export { Card };

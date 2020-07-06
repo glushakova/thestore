@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import './style.css';
 import { CartOrderInfo } from '../../components';
@@ -7,7 +8,6 @@ import { Link } from 'react-router-dom';
 import { ROUTES } from '../../const';
 import {
   postOrder,
-  onChangeName,
   onChangeAddress,
   onChangePhone,
   onChangeComment,
@@ -16,29 +16,34 @@ import {
 const CheckoutPage = () => {
   const card = useSelector((state) => state.card.value);
   const goods = useSelector((state) => state.goods.goods);
-  const fullName = useSelector((state) => state.order.fullName);
   const phone = useSelector((state) => state.order.phone);
   const address = useSelector((state) => state.order.address);
-  const comments = useSelector((state) => state.order.comments);
+  const comment = useSelector((state) => state.order.comments);
+  const fullName = useSelector((state) => state.auth.user?.firstName);
   const dispatch = useDispatch();
+  const history = useHistory();
+  const token = localStorage.getItem('token');
 
-  const products = goods
+  useEffect(() => {
+    if (!token) {
+      history.push('/sign-in');
+    }
+  }, [token]);
+
+  const orderProducts = goods
     .filter((product) => card[product.id])
-    .map((product) => product);
+    .map((product) => ({
+      count: card[product.id],
+      product: { id: product.id },
+    }));
+
+  console.log(orderProducts);
 
   return (
     <div className="container">
       <h2>Оформление заказа</h2>
       <div className="checkout">
         <div className="checkout-info">
-          <input
-            type="text"
-            placeholder="Имя"
-            autoFocus
-            required
-            onChange={(event) => dispatch(onChangeName(event.target.value))}
-            value={fullName}
-          ></input>
           <input
             type="text"
             placeholder="Адрес"
@@ -57,7 +62,7 @@ const CheckoutPage = () => {
             placeholder="Комментарии к заказу"
             rows="5"
             onChange={(event) => dispatch(onChangeComment(event.target.value))}
-            value={comments}
+            value={comment}
           ></textarea>
         </div>
         <div className="checkout-info">
@@ -69,10 +74,10 @@ const CheckoutPage = () => {
           className="checkout-btn"
           onClick={() => {
             dispatch(
-              postOrder({ address, fullName, phone, comments, products })
+              postOrder({ address, fullName, phone, comment, orderProducts })
             );
           }}
-          disabled={!address || !fullName || !phone || products.length === 0}
+          disabled={!address || !phone || orderProducts.length === 0}
         >
           Подтвердить заказ
         </button>

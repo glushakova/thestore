@@ -32,7 +32,7 @@ const HistoryOrderPage = () => {
   return (
     <div className="container">
       <h2>История заказов</h2>
-      {!historyOrder && <h4>История заказов пуста :(</h4>}
+      {historyOrder.length === 0 && <h4>История заказов пуста :(</h4>}
       <div className="history-orders">
         {historyOrder?.map((order) => {
           return (

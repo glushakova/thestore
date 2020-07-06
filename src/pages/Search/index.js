@@ -22,7 +22,6 @@ const SearchPage = () => {
       inputValue &&
       element.name.toLowerCase().includes(inputValue.toLowerCase())
   );
-  console.log(result.length);
 
   return (
     <div className="container">

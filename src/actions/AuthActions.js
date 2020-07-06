@@ -25,12 +25,16 @@ const signInFailure = (err) => ({
   payload: err,
 });
 
-export const signIn = (props) => {
+export const signIn = ({ email, password, history }) => {
   return async (dispatch) => {
     dispatch(start());
     try {
-      const response = await axios.post('http://localhost:8000/sign-in', props);
+      const response = await axios.post('http://localhost:8000/sign-in', {
+        email,
+        password,
+      });
       dispatch(signInSuccess(response.data));
+      history.push('/main');
     } catch (err) {
       dispatch(signInFailure(err.message));
     }

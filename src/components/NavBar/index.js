@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
 import logo from './logo.svg';
@@ -15,6 +15,11 @@ import './style.css';
 
 const NavBar = () => {
   const token = localStorage.getItem('token');
+
+  const history = useHistory();
+  const toMainPage = () => {
+    history.push('/main');
+  };
 
   const dispatch = useDispatch();
 
@@ -64,7 +69,13 @@ const NavBar = () => {
           </Link>
         ) : (
           <>
-            <button className="button" onClick={() => dispatch(signOut())}>
+            <button
+              className="button"
+              onClick={() => {
+                dispatch(signOut());
+                toMainPage();
+              }}
+            >
               <img src={log_out} alt="log out" />
             </button>
             <Link className="navbar-elem" to={ROUTES.HISTORY}>

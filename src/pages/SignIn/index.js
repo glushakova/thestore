@@ -11,13 +11,10 @@ const SignInPage = () => {
   const email = useSelector((state) => state.auth.email);
   const password = useSelector((state) => state.auth.password);
   const loading = useSelector((state) => state.auth.loading);
-  const error = useSelector((state) => state.auth.err);
+  const error = useSelector((state) => state.auth.error);
   const dispatch = useDispatch();
 
   const history = useHistory();
-  const toMainPage = () => {
-    history.push('/main');
-  };
 
   if (loading) {
     return <Loader />;
@@ -41,8 +38,7 @@ const SignInPage = () => {
         />
         <button
           onClick={() => {
-            dispatch(signIn({ email, password }));
-            toMainPage();
+            dispatch(signIn({ email, password, history }));
           }}
         >
           Sign in

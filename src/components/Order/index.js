@@ -7,7 +7,6 @@ import { ROUTES } from '../../const';
 import './style.css';
 
 const Order = ({ order }) => {
-  console.log(order);
   return (
     <div className="order">
       <div className="order-list">

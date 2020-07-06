@@ -9,7 +9,7 @@ import { Card, Loader } from '../../components';
 import '../Cart/style.css';
 
 const LastOrderPage = (props) => {
-  const lastOrder = useSelector((state) => state.order.oneLastOrder?.products);
+  const lastOrder = useSelector((state) => state.order.oneLastOrder);
   const loading = useSelector((state) => state.order.loading);
   const error = useSelector((state) => state.order.err);
   const dispatch = useDispatch();
@@ -17,8 +17,6 @@ const LastOrderPage = (props) => {
   useEffect(() => {
     dispatch(getOneOrder(props.match.params.index));
   }, [props.match.params.index, dispatch]);
-
-  console.log(props.match.params.index);
 
   if (!lastOrder && !loading) {
     return (
@@ -34,24 +32,29 @@ const LastOrderPage = (props) => {
 
   return (
     <div className="container">
-      <h2>{`Прошлый заказ № ${1 + 14234}`}</h2>
+      <h2>{`Прошлый заказ № ${lastOrder.id}`}</h2>
       <div className="card">
         <div className="cart-list">
-          {lastOrder?.map((order) => {
+          {lastOrder?.orderProducts.map((order) => {
             return (
-              <Link key={order.id} to={`${ROUTES.GOODS}/${order.id}`}>
+              <Link
+                key={order.product.id}
+                to={`${ROUTES.GOODS}/${order.product.id}`}
+              >
                 <Card
-                  id={order.id}
-                  name={order.name}
-                  price={order.price}
-                  country={order.country}
-                  countAvailable={order.countAvailable}
+                  id={order.product.id}
+                  name={order.product.name}
+                  price={order.product.price}
+                  country={order.product.country}
+                  countAvailable={order.product.countAvailable}
+                  count={order.count}
                 />
               </Link>
             );
           })}
         </div>
       </div>
+      <h3>{`Итоговая сумма: ${lastOrder.totalCost}$`}</h3>
     </div>
   );
 };
