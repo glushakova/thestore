@@ -12,6 +12,11 @@ export default (state = initialState, action) => {
         value: action.payload,
       };
     }
+    case ACTIONST_TYPE.SIGN_OUT: {
+      return {
+        ...initialState,
+      };
+    }
     default:
       return state;
   }

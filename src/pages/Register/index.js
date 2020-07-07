@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import {
@@ -7,6 +7,7 @@ import {
   onChangeFirstName,
   onChangeLastName,
   registration,
+  clear,
 } from '../../actions/AuthActions';
 import { Loader } from '../../components';
 import '../SignIn/style.css';
@@ -20,11 +21,11 @@ const RegisterPage = () => {
   const error = useSelector((state) => state.auth.error);
   const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
-
   const history = useHistory();
-  const toMainPage = () => {
-    history.push('/main');
-  };
+
+  useEffect(() => {
+    dispatch(clear());
+  }, [dispatch]);
 
   if (loading) {
     return <Loader />;
@@ -37,7 +38,7 @@ const RegisterPage = () => {
           <h1 className="sign-in__title">Create account</h1>
           <input
             type="text"
-            placeholder="First name"
+            placeholder="first name"
             onChange={(event) =>
               dispatch(onChangeFirstName(event.target.value))
             }
@@ -45,7 +46,7 @@ const RegisterPage = () => {
           />
           <input
             type="text"
-            placeholder="Last name"
+            placeholder="last name"
             onChange={(event) => dispatch(onChangeLastName(event.target.value))}
             value={lastName}
           />
@@ -63,8 +64,9 @@ const RegisterPage = () => {
           />
           <button
             onClick={() => {
-              dispatch(registration({ firstName, lastName, email, password }));
-              toMainPage();
+              dispatch(
+                registration({ firstName, lastName, email, password, history })
+              );
             }}
             disabled={!firstName || !lastName || !email || !password}
           >

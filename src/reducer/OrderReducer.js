@@ -42,6 +42,7 @@ export default (state = initialState, action) => {
         ...state,
         loading: false,
         products: action.payload,
+        err: null,
       };
     }
     case ACTIONST_TYPE.POST_ORDER_FAILURE: {
@@ -56,6 +57,7 @@ export default (state = initialState, action) => {
         ...state,
         loading: false,
         lastOrders: action.payload,
+        err: null,
       };
     }
     case ACTIONST_TYPE.GET_ORDERS_FAILURE: {

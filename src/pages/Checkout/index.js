@@ -28,7 +28,7 @@ const CheckoutPage = () => {
     if (!token) {
       history.push('/sign-in');
     }
-  }, [token]);
+  }, [token, history]);
 
   const orderProducts = goods
     .filter((product) => card[product.id])
@@ -36,8 +36,6 @@ const CheckoutPage = () => {
       count: card[product.id],
       product: { id: product.id },
     }));
-
-  console.log(orderProducts);
 
   return (
     <div className="container">

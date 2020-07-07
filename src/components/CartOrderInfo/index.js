@@ -10,8 +10,10 @@ export const CartOrderInfo = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getGoods());
-  }, [dispatch]);
+    if (!goods) {
+      dispatch(getGoods());
+    }
+  }, [dispatch, goods]);
 
   let totalCost = goods
     .filter((product) => card[product.id])

@@ -13,8 +13,10 @@ const CartPage = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getGoods());
-  }, [dispatch]);
+    if (!goods) {
+      dispatch(getGoods());
+    }
+  }, [dispatch, goods]);
 
   const cartGoods = goods.filter((product) => card[product.id]);
 

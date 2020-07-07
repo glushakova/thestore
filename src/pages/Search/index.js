@@ -14,8 +14,10 @@ const SearchPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getGoods());
-  }, [dispatch]);
+    if (!goods) {
+      dispatch(getGoods());
+    }
+  }, [dispatch, goods]);
 
   const result = goods.filter(
     (element) =>

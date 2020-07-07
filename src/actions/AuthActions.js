@@ -66,12 +66,24 @@ const signUpFailure = (err) => ({
   payload: err,
 });
 
-export const registration = (props) => {
+export const registration = ({
+  firstName,
+  lastName,
+  email,
+  password,
+  history,
+}) => {
   return async (dispatch) => {
     dispatch(start());
     try {
-      const response = await axios.post('http://localhost:8000/sign-up', props);
+      const response = await axios.post('http://localhost:8000/sign-up', {
+        firstName,
+        lastName,
+        email,
+        password,
+      });
       dispatch(signUpSuccess(response.data));
+      history.push('/main');
     } catch (err) {
       dispatch(signUpFailure(err.message));
     }
@@ -80,4 +92,8 @@ export const registration = (props) => {
 
 export const signOut = () => ({
   type: ACTIONST_TYPE.SIGN_OUT,
+});
+
+export const clear = () => ({
+  type: ACTIONST_TYPE.CLEAR,
 });

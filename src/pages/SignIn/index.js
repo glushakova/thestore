@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { ROUTES } from '../../const';
-import { onChangeEmail, onChangePassword, signIn } from '../../actions';
+import { onChangeEmail, onChangePassword, signIn, clear } from '../../actions';
 import { Loader } from '../../components';
 import './style.css';
 
@@ -13,6 +13,10 @@ const SignInPage = () => {
   const loading = useSelector((state) => state.auth.loading);
   const error = useSelector((state) => state.auth.error);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(clear());
+  }, [dispatch]);
 
   const history = useHistory();
 
