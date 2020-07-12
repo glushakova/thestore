@@ -21,7 +21,7 @@
     "serve": "^11.3.2"
   },
   "scripts": {
-    "start": "serve build",
+    "start": "serve build --single",
     "start:dev": "react-scripts start",
     "build": "react-scripts build",
     "deploy": "gh-pages -b master -d build",
