@@ -44,6 +44,7 @@ const SignInPage = () => {
           onClick={() => {
             dispatch(signIn({ email, password, history }));
           }}
+          disabled={!email || !password}
         >
           Sign in
         </button>
