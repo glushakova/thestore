@@ -19,7 +19,9 @@ export const getProduct = (id) => {
   return async (dispatch) => {
     dispatch(getProductStart());
     try {
-      const response = await axios.get(`http://localhost:8000/products/${id}`);
+      const response = await axios.get(
+        `${process.env.REACT_APP_API}/products/${id}`
+      );
       dispatch(getProductSuccess(response.data));
     } catch (err) {
       dispatch(getProductFailure(err.message));

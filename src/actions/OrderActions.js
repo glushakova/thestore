@@ -38,7 +38,10 @@ export const postOrder = (props) => {
   return async (dispatch) => {
     dispatch(start());
     try {
-      const response = await axios.post(`http://localhost:8000/orders`, props);
+      const response = await axios.post(
+        `${process.env.REACT_APP_API}/orders`,
+        props
+      );
       dispatch(postOrderSuccess(response.data));
     } catch (err) {
       dispatch(postOrderFailure(err.message));
@@ -60,7 +63,7 @@ export const getOrder = () => {
   return async (dispatch) => {
     dispatch(start());
     try {
-      const response = await axios.get(`http://localhost:8000/orders`);
+      const response = await axios.get(`${process.env.REACT_APP_API}/orders`);
       dispatch(getOrdersSuccess(response.data));
     } catch (err) {
       dispatch(getOrdersFailure(err.message));
@@ -77,7 +80,9 @@ export const getOneOrder = (id) => {
   return async (dispatch) => {
     dispatch(start());
     try {
-      const response = await axios.get(`http://localhost:8000/orders/${id}`);
+      const response = await axios.get(
+        `${process.env.REACT_APP_API}/orders/${id}`
+      );
       dispatch(getOrderSuccess(response.data));
     } catch (err) {
       dispatch(getOrdersFailure(err.message));

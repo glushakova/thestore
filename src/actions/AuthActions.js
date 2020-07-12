@@ -29,10 +29,11 @@ export const signIn = ({ email, password, history }) => {
   return async (dispatch) => {
     dispatch(start());
     try {
-      const response = await axios.post('http://localhost:8000/sign-in', {
+      const response = await axios.post(`${process.env.REACT_APP_API}/sign-in`, {
         email,
         password,
       });
+     
       dispatch(signInSuccess(response.data));
       history.push('/main');
     } catch (err) {
@@ -76,12 +77,15 @@ export const registration = ({
   return async (dispatch) => {
     dispatch(start());
     try {
-      const response = await axios.post('http://localhost:8000/sign-up', {
-        firstName,
-        lastName,
-        email,
-        password,
-      });
+      const response = await axios.post(
+        `${process.env.REACT_APP_API}/sign-up`,
+        {
+          firstName,
+          lastName,
+          email,
+          password,
+        }
+      );
       dispatch(signUpSuccess(response.data));
       history.push('/main');
     } catch (err) {

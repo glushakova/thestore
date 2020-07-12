@@ -20,7 +20,7 @@ export const getGoods = () => {
   return async (dispatch) => {
     dispatch(getGoodsStart());
     try {
-      const response = await axios.get('http://localhost:8000/products');
+      const response = await axios.get(`${process.env.REACT_APP_API}/products`);
       dispatch(getGoodsSuccess(response.data));
     } catch (err) {
       dispatch(getGoodsFailure(err.message));
