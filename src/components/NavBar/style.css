@@ -63,14 +63,14 @@
   }
   .navbar-elem:last-child {
     margin-right: 0;
-    font-size: 14px;
+    font-size: 13px;
     height: auto;
   }
   .navbar-elem-flex:first-child {
     width: 73px;
   }
   .navbar-elem-flex {
-    width: 126px;
+    width: auto;
   }
   .navbar-card {
     font-size: 14px;

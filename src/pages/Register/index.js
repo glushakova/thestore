@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+
 import {
   onChangeEmail,
   onChangePassword,
@@ -33,6 +35,9 @@ const RegisterPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Регистрация</title>
+      </Helmet>
       <div className="container">
         <div className="sign-in">
           <h1 className="sign-in__title">Create account</h1>

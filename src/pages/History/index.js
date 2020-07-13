@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
+
 import { getOrder } from '../../actions';
 import { Loader, Order } from '../../components';
 import { ROUTES } from '../../const';
@@ -30,19 +31,24 @@ const HistoryOrderPage = () => {
   }
 
   return (
-    <div className="container">
-      <h2>История заказов</h2>
-      {historyOrder.length === 0 && <h4>История заказов пуста :(</h4>}
-      <div className="history-orders">
-        {historyOrder?.map((order) => {
-          return (
-            <Link key={order.id} to={`${ROUTES.HISTORY}/${order.id}`}>
-              <Order order={order} />
-            </Link>
-          );
-        })}
+    <>
+      <Helmet>
+        <title>История заказов</title>
+      </Helmet>
+      <div className="container">
+        <h2>История заказов</h2>
+        {historyOrder.length === 0 && <h4>История заказов пуста :(</h4>}
+        <div className="history-orders">
+          {historyOrder?.map((order) => {
+            return (
+              <Link key={order.id} to={`${ROUTES.HISTORY}/${order.id}`}>
+                <Order order={order} />
+              </Link>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

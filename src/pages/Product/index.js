@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 
 import { getProduct, clickMinus, clickPlus } from '../../actions';
 import { Loader } from '../../components';
 import './style.css';
-import img from '../../components/Card/fon.jpeg';
 
 const ProductPage = (props) => {
   const product = useSelector((state) => state.product.product);
@@ -33,42 +33,47 @@ const ProductPage = (props) => {
   let personValue = value[props.match.params.index] || 0;
 
   return (
-    <div className="container">
-      <h2>{product.name}</h2>
-      <img src={img} className="product-img" alt="product"></img>
-      <div className="product">
-        <h3 className="product-price">{`${product.price}$`}</h3>
-        <div className="product-counter">
-          <button
-            className="product-counter__btn"
-            disabled={personValue <= 0}
-            onClick={() => dispatch(clickMinus(props.match.params.index))}
-          >
-            -
-          </button>
-          <div className="product-counter__value">{personValue}</div>
-          <button
-            className="product-counter__btn"
-            disabled={personValue >= product.countAvailable}
-            onClick={() => dispatch(clickPlus(props.match.params.index))}
-          >
-            +
-          </button>
+    <>
+      <Helmet>
+        <title>{product.name}</title>
+      </Helmet>
+      <div className="container">
+        <h2>{product.name}</h2>
+        <img src={product.imageUrl} className="product-img" alt="product"></img>
+        <div className="product">
+          <h3 className="product-price">{`${product.price}$`}</h3>
+          <div className="product-counter">
+            <button
+              className="product-counter__btn"
+              disabled={personValue <= 0}
+              onClick={() => dispatch(clickMinus(props.match.params.index))}
+            >
+              -
+            </button>
+            <div className="product-counter__value">{personValue}</div>
+            <button
+              className="product-counter__btn"
+              disabled={personValue >= product.countAvailable}
+              onClick={() => dispatch(clickPlus(props.match.params.index))}
+            >
+              +
+            </button>
+          </div>
+          <div>
+            <h5 className="product-title">Описание</h5>
+            <p className="product-text">{product.description}</p>
+          </div>
+          <div>
+            <h5 className="product-title">Страна происхождения</h5>
+            <p className="product-text">{product.country}</p>
+          </div>
+          <p className="product-text">
+            Получить консультацию и уточнить наличие товара можно по телефону
+            +375 (33) 384-33-22
+          </p>
         </div>
-        <div>
-          <h5 className="product-title">Описание</h5>
-          <p className="product-text">{product.description}</p>
-        </div>
-        <div>
-          <h5 className="product-title">Страна происхождения</h5>
-          <p className="product-text">{product.country}</p>
-        </div>
-        <p className="product-text">
-          Получить консультацию и уточнить наличие товара можно по телефону +375
-          (33) 384-33-22
-        </p>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,6 +1,6 @@
 .history-orders {
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: 55vw;
   grid-gap: 20px;
 }
 

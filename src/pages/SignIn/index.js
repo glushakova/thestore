@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { Helmet } from 'react-helmet';
 
 import { ROUTES } from '../../const';
 import { onChangeEmail, onChangePassword, signIn, clear } from '../../actions';
@@ -25,35 +26,40 @@ const SignInPage = () => {
   }
 
   return (
-    <div className="container">
-      <div className="sign-in">
-        <h2 className="sign-in__title">Sign in</h2>
-        <input
-          type="text"
-          placeholder="email"
-          onChange={(event) => dispatch(onChangeEmail(event.target.value))}
-          value={email}
-        />
-        <input
-          type="text"
-          placeholder="password"
-          onChange={(event) => dispatch(onChangePassword(event.target.value))}
-          value={password}
-        />
-        <button
-          onClick={() => {
-            dispatch(signIn({ email, password, history }));
-          }}
-          disabled={!email || !password}
-        >
-          Sign in
-        </button>
-        {!loading && error && <div>{`Ошибка: ${error}`}</div>}
-        <Link className="sign-in__title" to={ROUTES.REGISTER}>
-          <h4>Don’t have an account?</h4>
-        </Link>
+    <>
+      <Helmet>
+        <title>Вход в аккаунт</title>
+      </Helmet>
+      <div className="container">
+        <div className="sign-in">
+          <h2 className="sign-in__title">Sign in</h2>
+          <input
+            type="text"
+            placeholder="email"
+            onChange={(event) => dispatch(onChangeEmail(event.target.value))}
+            value={email}
+          />
+          <input
+            type="text"
+            placeholder="password"
+            onChange={(event) => dispatch(onChangePassword(event.target.value))}
+            value={password}
+          />
+          <button
+            onClick={() => {
+              dispatch(signIn({ email, password, history }));
+            }}
+            disabled={!email || !password}
+          >
+            Sign in
+          </button>
+          {!loading && error && <div>{`Ошибка: ${error}`}</div>}
+          <Link className="sign-in__title" to={ROUTES.REGISTER}>
+            <h4>Don’t have an account?</h4>
+          </Link>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -13,11 +13,11 @@
 .card-title {
   text-align: center;
   margin: 0 7px;
-  height: 15%;
+  height: 20%;
 }
 
 .card-img {
-  height: 35%;
+  height: 40%;
 }
 
 .card-info {
@@ -48,12 +48,9 @@
 }
 
 @media (max-width: 576px) {
-  .card-img {
-    height: 30%;
-  }
   .card-title {
     font-size: 13px;
-    height: 27%;
+    height: 18%;
   }
   .card-info {
     font-size: 10px;

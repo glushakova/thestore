@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 
 import { getOneOrder } from '../../actions';
-import { Link } from 'react-router-dom';
 import { ROUTES } from '../../const';
 import { Card, Loader } from '../../components';
 import '../Cart/style.css';
@@ -31,31 +32,37 @@ const LastOrderPage = (props) => {
   }
 
   return (
-    <div className="container">
-      <h2>{`Прошлый заказ № ${lastOrder.id}`}</h2>
-      <div className="card">
-        <div className="cart-list">
-          {lastOrder?.orderProducts.map((order) => {
-            return (
-              <Link
-                key={order.product.id}
-                to={`${ROUTES.GOODS}/${order.product.id}`}
-              >
-                <Card
-                  id={order.product.id}
-                  name={order.product.name}
-                  price={order.product.price}
-                  country={order.product.country}
-                  countAvailable={order.product.countAvailable}
-                  count={order.count}
-                />
-              </Link>
-            );
-          })}
+    <>
+      <Helmet>
+        <title>{`Заказ № ${lastOrder.id}`}</title>
+      </Helmet>
+      <div className="container">
+        <h2>{`Прошлый заказ № ${lastOrder.id}`}</h2>
+        <div className="card">
+          <div className="cart-list">
+            {lastOrder?.orderProducts.map((order) => {
+              return (
+                <Link
+                  key={order.product.id}
+                  to={`${ROUTES.GOODS}/${order.product.id}`}
+                >
+                  <Card
+                    id={order.product.id}
+                    name={order.product.name}
+                    price={order.product.price}
+                    country={order.product.country}
+                    countAvailable={order.product.countAvailable}
+                    imageUrl={order.product.imageUrl}
+                    count={order.count}
+                  />
+                </Link>
+              );
+            })}
+          </div>
         </div>
+        <h3>{`Итоговая сумма: ${lastOrder.totalCost}$`}</h3>
       </div>
-      <h3>{`Итоговая сумма: ${lastOrder.totalCost}$`}</h3>
-    </div>
+    </>
   );
 };
 

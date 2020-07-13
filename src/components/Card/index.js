@@ -3,10 +3,17 @@ import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { clickMinus, clickPlus } from '../../actions';
-import img from './fon.jpeg';
 import './style.css';
 
-const Card = ({ id, name, price, country, countAvailable, count }) => {
+const Card = ({
+  id,
+  name,
+  price,
+  country,
+  countAvailable,
+  count,
+  imageUrl,
+}) => {
   const value = useSelector((state) => state.card.value);
   const dispatch = useDispatch();
 
@@ -25,7 +32,7 @@ const Card = ({ id, name, price, country, countAvailable, count }) => {
   return (
     <div id="card">
       <h4 className="card-title">{name}</h4>
-      <img src={img} alt="flower" className="card-img" />
+      <img src={imageUrl} alt="flower" className="card-img" />
       <p className="card-info">{`${price}$`}</p>
       <p className="card-info">{country}</p>
       <div className="card-counter">
@@ -60,6 +67,7 @@ Card.propTypes = {
   country: PropTypes.string,
   countAvailable: PropTypes.number,
   count: PropTypes.number,
+  imageUrl: PropTypes.string,
 };
 
 export { Card };
