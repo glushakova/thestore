@@ -78,7 +78,7 @@ const NavBar = () => {
             >
               <img src={log_out} alt="log out" />
             </button>
-            <Link className="navbar-elem" to={ROUTES.HISTORY}>
+            <Link className="navbar-elem" to={ROUTES.PROFILE}>
               {user.firstName}
             </Link>
           </>

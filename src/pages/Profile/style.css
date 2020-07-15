@@ -1,0 +1,32 @@
+.profile {
+  background-color: rgba(207, 223, 194, 0.3);
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-bottom: 19px;
+}
+
+.profile-list {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  width: auto;
+}
+
+.profile-info {
+  list-style-type: none;
+  margin: 2vh 0;
+}
+
+.profile-info:last-child {
+  margin: 2vh 0 2vh 5vh;
+}
+
+@media (max-width: 360px) {
+  .profile-info:last-child {
+    margin: 2vh 0 2vh 2vh;
+  }
+  .profile {
+    padding: 10px;
+  }
+}

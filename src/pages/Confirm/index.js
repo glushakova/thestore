@@ -15,8 +15,10 @@ const ConfirmPage = () => {
         <title>Ошибка оформления заказа</title>
       </Helmet>
       <div className="container">
-        <h2>Упс, произошла ошибка, попробуйте еще раз</h2>
-        <div>
+        <h2 className="confirm-title">
+          Упс, произошла ошибка, попробуйте еще раз
+        </h2>
+        <div className="confirm-btn">
           <Link to={ROUTES.CHECKOUT}>
             <button className="confirm-link-btn">
               Перейти к оформлению заказа
@@ -42,7 +44,7 @@ const ConfirmPage = () => {
             нам письмо на email: email@email.email
           </p>
         </div>
-        <div>
+        <div className="confirm-btn">
           <Link to={ROUTES.MAIN}>
             <button className="confirm-link-btn">Перейти на главную</button>
           </Link>

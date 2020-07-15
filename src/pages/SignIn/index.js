@@ -40,7 +40,7 @@ const SignInPage = () => {
             value={email}
           />
           <input
-            type="text"
+            type="password"
             placeholder="password"
             onChange={(event) => dispatch(onChangePassword(event.target.value))}
             value={password}

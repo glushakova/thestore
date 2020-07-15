@@ -40,6 +40,7 @@ export const postOrder = (props) => {
   return async (dispatch) => {
     dispatch(start());
     try {
+      authorization();
       const response = await axios.post(
         `${process.env.REACT_APP_API}/orders`,
         props
@@ -83,6 +84,7 @@ export const getOneOrder = (id) => {
   return async (dispatch) => {
     dispatch(start());
     try {
+      authorization();
       const response = await axios.get(
         `${process.env.REACT_APP_API}/orders/${id}`
       );

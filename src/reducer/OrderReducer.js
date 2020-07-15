@@ -40,6 +40,7 @@ export default (state = initialState, action) => {
     case ACTIONST_TYPE.POST_ORDER_SUCCESS: {
       return {
         ...state,
+        ...initialState,
         loading: false,
         products: action.payload,
         err: null,
