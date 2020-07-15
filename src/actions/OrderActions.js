@@ -1,9 +1,11 @@
 import axios from 'axios';
 import { ACTIONST_TYPE } from '../const';
 
-axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem(
-  'token'
-)}`;
+const authorization = () =>
+  (axios.defaults.headers.common[
+    'Authorization'
+  ] = `Bearer ${localStorage.getItem('token')}`);
+authorization();
 
 export const onChangeAddress = (address) => ({
   type: ACTIONST_TYPE.ON_CHANGE_ADDRESS,
@@ -63,6 +65,7 @@ export const getOrder = () => {
   return async (dispatch) => {
     dispatch(start());
     try {
+      authorization();
       const response = await axios.get(`${process.env.REACT_APP_API}/orders`);
       dispatch(getOrdersSuccess(response.data));
     } catch (err) {

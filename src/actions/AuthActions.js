@@ -1,6 +1,10 @@
 import { ACTIONST_TYPE } from '../const';
 import axios from 'axios';
 
+axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem(
+  'token'
+)}`;
+
 export const onChangeEmail = (emailValue) => ({
   type: ACTIONST_TYPE.ON_CHANGE_EMAIL,
   payload: emailValue,
@@ -29,11 +33,13 @@ export const signIn = ({ email, password, history }) => {
   return async (dispatch) => {
     dispatch(start());
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API}/sign-in`, {
-        email,
-        password,
-      });
-     
+      const response = await axios.post(
+        `${process.env.REACT_APP_API}/sign-in`,
+        {
+          email,
+          password,
+        }
+      );
       dispatch(signInSuccess(response.data));
       history.push('/main');
     } catch (err) {
