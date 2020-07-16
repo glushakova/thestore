@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import {
   MainPage,
@@ -20,45 +20,48 @@ import { ROUTES } from '../const';
 
 const Navigation = () => {
   const user = useSelector((state) => state.auth.user);
-  console.log(user);
   const authRoutes = [
     <Route
+      exact
       path={ROUTES.PROFILE}
       component={ProfilePage}
       key={ROUTES.PROFILE}
     />,
     <Route
+      exact
       path={ROUTES.HISTORY}
       component={HistoryOrderPage}
       key={ROUTES.HISTORY}
     />,
     <Route
+      exact
       path={ROUTES.LASTORDER}
       component={LastOrderPage}
       key={ROUTES.LASTORDER}
     />,
     <Route
+      exact
       path={ROUTES.CONFIRM}
       component={ConfirmPage}
       key={ROUTES.CONFIRM}
     />,
   ];
   return (
-    <BrowserRouter>
+    <>
       <NavBar />
       <Switch>
         {user && authRoutes}
-        <Route path={ROUTES.SEARCH} component={SearchPage} />
-        <Route path={ROUTES.CART} component={CartPage} />
-        <Route path={ROUTES.PRODUCT} component={ProductPage} />
-        <Route path={ROUTES.GOODS} component={GoodsPage} />
-        <Route path={ROUTES.CHECKOUT} component={CheckoutPage} />
-        <Route path={ROUTES.REGISTER} component={RegisterPage} />
-        <Route path={ROUTES.SIGNIN} component={SignInPage} />
-        <Route path={ROUTES.MAIN} component={MainPage} />
+        <Route exact path={ROUTES.SEARCH} component={SearchPage} />
+        <Route exact path={ROUTES.CART} component={CartPage} />
+        <Route exact path={ROUTES.PRODUCT} component={ProductPage} />
+        <Route exact path={ROUTES.GOODS} component={GoodsPage} />
+        <Route exact path={ROUTES.CHECKOUT} component={CheckoutPage} />
+        <Route exact path={ROUTES.REGISTER} component={RegisterPage} />
+        <Route exact path={ROUTES.SIGNIN} component={SignInPage} />
+        <Route exact path={ROUTES.MAIN} component={MainPage} />
       </Switch>
-    </BrowserRouter>
+    </>
   );
 };
 
-export default Navigation;
+export default withRouter(Navigation);

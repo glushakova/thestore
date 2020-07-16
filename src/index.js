@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import ReduxLogger from 'redux-logger';
@@ -29,9 +30,11 @@ const persistor = persistStore(store);
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <React.StrictMode>
-        <Navigation />
-      </React.StrictMode>
+      <BrowserRouter>
+        <React.StrictMode>
+          <Navigation />
+        </React.StrictMode>
+      </BrowserRouter>
     </PersistGate>
   </Provider>,
   document.getElementById('root')
