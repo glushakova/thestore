@@ -41,7 +41,7 @@ export const signIn = ({ email, password, history }) => {
         }
       );
       dispatch(signInSuccess(response.data));
-      history.push('/main');
+      history.push('/');
     } catch (err) {
       dispatch(signInFailure(err.message));
     }
@@ -93,7 +93,7 @@ export const registration = ({
         }
       );
       dispatch(signUpSuccess(response.data));
-      history.push('/main');
+      history.push('/');
     } catch (err) {
       dispatch(signUpFailure(err.message));
     }

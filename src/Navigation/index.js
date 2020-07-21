@@ -58,7 +58,7 @@ const Navigation = () => {
         <Route exact path={ROUTES.CHECKOUT} component={CheckoutPage} />
         <Route exact path={ROUTES.REGISTER} component={RegisterPage} />
         <Route exact path={ROUTES.SIGNIN} component={SignInPage} />
-        <Route exact path={ROUTES.MAIN} component={MainPage} />
+        <Route path={ROUTES.MAIN} component={MainPage} />
       </Switch>
     </>
   );

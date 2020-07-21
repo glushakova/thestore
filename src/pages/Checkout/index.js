@@ -48,7 +48,7 @@ const CheckoutPage = () => {
           <div className="checkout-info">
             <input
               type="text"
-              placeholder="Адрес"
+              placeholder="Adresse"
               required
               onChange={(event) =>
                 dispatch(onChangeAddress(event.target.value))
@@ -57,13 +57,13 @@ const CheckoutPage = () => {
             ></input>
             <input
               type="text"
-              placeholder="Телефон"
+              placeholder="Phone number"
               required
               onChange={(event) => dispatch(onChangePhone(event.target.value))}
               value={phone}
             ></input>
             <textarea
-              placeholder="Комментарии к заказу"
+              placeholder="Order comments"
               rows="5"
               onChange={(event) =>
                 dispatch(onChangeComment(event.target.value))
