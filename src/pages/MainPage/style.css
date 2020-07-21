@@ -21,7 +21,7 @@
 }
 
 .main-title {
-  font-size: 67px;
+  font-size: 60px;
   width: 80%;
 }
 
@@ -42,6 +42,9 @@
     width: 960px;
     margin-top: 10vh;
   }
+  .main-text {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -50,7 +53,7 @@
     margin-top: 15vh;
   }
   .main-title {
-    font-size: 50px;
+    font-size: 45px;
   }
   .main-text {
     width: 70%;

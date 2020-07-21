@@ -48,7 +48,7 @@ const CheckoutPage = () => {
           <div className="checkout-info">
             <input
               type="text"
-              placeholder="Adresse"
+              placeholder="Adress"
               required
               onChange={(event) =>
                 dispatch(onChangeAddress(event.target.value))
