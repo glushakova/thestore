@@ -86,3 +86,12 @@
     margin-right: 5px;
   }
 }
+
+@media (max-height: 576px) {
+  .navbar {
+    height: 17vh;
+  }
+  .img {
+    height: 45px;
+  }
+}

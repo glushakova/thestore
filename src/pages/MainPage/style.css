@@ -64,6 +64,7 @@
   .main-description {
     width: 480px;
     padding-left: 3%;
+    height: 50vh;
   }
   .main-title {
     font-size: 37px;
@@ -83,5 +84,31 @@
   .main-text {
     font-size: 15px;
     width: 90%;
+  }
+}
+
+@media (max-height: 576px) {
+  .main-description {
+    width: 100vw;
+  }
+  .main-title {
+    font-size: 27px;
+    width: 90%;
+  }
+  .main-text {
+    font-size: 15px;
+    width: 90%;
+  }
+}
+
+@media (max-height: 360px) {
+  .main-description {
+    width: 100vw;
+  }
+  .main-title {
+    font-size: 24px;
+  }
+  .main-text {
+    font-size: 14px;
   }
 }

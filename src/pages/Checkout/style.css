@@ -24,16 +24,6 @@
 .checkout-btn[disabled] {
   background-color: white;
 }
-textarea {
-  background-color: white;
-  color: #333;
-  border: 1px solid #ddd;
-  border-radius: 1rem;
-  padding: 1rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  resize: none;
-}
 
 @media (max-width: 768px) {
   .checkout {
