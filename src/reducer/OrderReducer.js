@@ -75,11 +75,6 @@ export default (state = initialState, action) => {
         oneLastOrder: action.payload,
       };
     }
-    case ACTIONST_TYPE.SIGN_OUT: {
-      return {
-        ...initialState,
-      };
-    }
     default:
       return state;
   }

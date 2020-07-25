@@ -24,11 +24,6 @@ export default (state = initialState, action) => {
         },
       };
     }
-    case ACTIONST_TYPE.SIGN_OUT: {
-      return {
-        ...initialState,
-      };
-    }
     case ACTIONST_TYPE.POST_ORDER_SUCCESS: {
       return {
         ...initialState,
