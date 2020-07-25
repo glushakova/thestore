@@ -69,6 +69,7 @@ input:focus {
 
 @media (max-height: 576px) {
   .container {
-    margin-top: 20vh;
+    margin-top: 22vh;
+    margin-bottom: 5vh;
   }
 }

@@ -61,3 +61,14 @@
     font-size: 13px;
   }
 }
+
+@media (max-height: 576px) {
+  #card {
+    height: 45vh;
+  }
+}
+@media (max-height: 380px) {
+  #card {
+    height: 50vh;
+  }
+}

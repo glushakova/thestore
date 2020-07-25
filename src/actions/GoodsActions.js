@@ -28,12 +28,7 @@ export const getGoods = () => {
   };
 };
 
-export const sortGoodsIncreasing = (value) => ({
-  type: ACTIONST_TYPE.SORT_GOODS_INCRESEASE,
-  payload: value,
-});
-
-export const sortGoodsDecreasing = (value) => ({
-  type: ACTIONST_TYPE.SORT_GOODS_DECREASE,
-  payload: value,
+export const setSortParam = (action) => ({
+  type: ACTIONST_TYPE.SORT_GOODS,
+  payload: action,
 });

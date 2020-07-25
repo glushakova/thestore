@@ -2,6 +2,7 @@ import { ACTIONST_TYPE } from '../const';
 
 const initialState = {
   goods: [],
+  sortParam: 'price_asc',
   loading: false,
   err: '',
 };
@@ -28,34 +29,10 @@ export default (state = initialState, action) => {
         err: action.payload,
       };
     }
-    case ACTIONST_TYPE.SORT_GOODS_INCRESEASE: {
-      const goodsSort = [...state.goods];
+    case ACTIONST_TYPE.SORT_GOODS: {
       return {
         ...state,
-        goods: goodsSort.sort((a, b) => {
-          if (a[action.payload] > b[action.payload]) {
-            return 1;
-          }
-          if (a[action.payload] < b[action.payload]) {
-            return -1;
-          }
-          return 0;
-        }),
-      };
-    }
-    case ACTIONST_TYPE.SORT_GOODS_DECREASE: {
-      const goodsSort = [...state.goods];
-      return {
-        ...state,
-        goods: goodsSort.sort((a, b) => {
-          if (a[action.payload] > b[action.payload]) {
-            return -1;
-          }
-          if (a[action.payload] < b[action.payload]) {
-            return 1;
-          }
-          return 0;
-        }),
+        sortParam: action.payload,
       };
     }
     default:

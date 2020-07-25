@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
@@ -20,10 +20,15 @@ const SearchPage = () => {
     }
   }, [dispatch, goods]);
 
-  const result = goods.filter(
-    (element) =>
-      inputValue &&
-      element.name.toLowerCase().includes(inputValue.toLowerCase())
+  const result = useMemo(
+    () =>
+      goods.filter(
+        (element) =>
+          inputValue &&
+          element.name.toLowerCase().includes(inputValue.toLowerCase())
+      ),
+
+    [goods, inputValue]
   );
 
   return (
